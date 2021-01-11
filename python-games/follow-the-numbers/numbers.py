@@ -24,9 +24,9 @@ def draw():
         dot.draw()
         number = number + 1
     for line in lines:
-        screen.draw.lines(line[0], line[1], (65, 105, 225))
+        screen.draw.line(line[0], line[1], (65, 105, 225))
 
-def on_mouse_down():
+def on_mouse_down(pos):
     global next_dot
     global lines
     if dots[next_dot].collidepoint(pos):
