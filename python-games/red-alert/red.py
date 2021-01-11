@@ -14,3 +14,15 @@ game_complete = False
 current_level = 1
 stars = []
 animations = []
+
+def draw():
+    global stars, current_level, game_over, game_complete
+    screen.clear()
+    screen.blit('space', (0, 0))
+    if game_over:
+        display_message('GAME OVER!', 'Try again.')
+    elif game_complete:
+        display_message("YOU WON!", 'Well done.')
+    else:
+        for star in stars:
+            star.draw()
