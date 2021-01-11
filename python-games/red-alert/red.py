@@ -33,3 +33,15 @@ def make_stars():
     layout_stars(new_stars)
     animate_stars(new_stars)
     return new_stars
+
+def get_colours_to_create(number_of_extra_stars):
+    return []
+
+def create_stars(colours_to_create):
+    return []
+
+def layout_stars(stars_to_layout):
+    pass
+
+def animate_stars(stars_to_animate):
+    pass
