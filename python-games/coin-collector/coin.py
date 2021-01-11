@@ -24,3 +24,5 @@ def time_up():
 
 def update():
     pass
+
+place_coin()
