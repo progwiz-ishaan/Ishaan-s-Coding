@@ -9,6 +9,11 @@ def place_apple():
     apple.y = 200
 
 def on_mouse_down(pos):
-    print("Good shot!")
+    if apple.collidepoint(pos):
+        print("Good shot!")
+        place_apple()
+    else:
+        print("You missed!")
+        quit()
 
 place_apple()
