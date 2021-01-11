@@ -10,8 +10,8 @@ next_dot = 0
 
 for dot in range(0, 10):
     actor = Actor('dot')
-    actor.pos = randint(20, WIDTH - 20),
-    randint(20, HEIGHT - 20)
+    actor.pos = randint(20, WIDTH - 20), \
+        randint(20, HEIGHT - 20)
     dots.append(actor)
 
 def draw():
@@ -25,3 +25,14 @@ def draw():
         number = number + 1
     for line in lines:
         screen.draw.lines(line[0], line[1], (65, 105, 225))
+
+def on_mouse_down():
+    global next_dot
+    global lines
+    if dots[next_dot].collidepoint(pos):
+        if next_dot:
+            lines.append((dots[next_dot-1].pos, dots[next_dot].pos))
+        next_dot = next_dot + 1
+    else:
+        lines = []
+        next_dot = 0
