@@ -26,3 +26,10 @@ def draw():
     else:
         for star in stars:
             star.draw()
+
+def make_stars():
+    colours_to_create = get_colours_to_create(number_of_extra_stars)
+    new_stars = create_stars(colours_to_create)
+    layout_stars(new_stars)
+    animate_stars(new_stars)
+    return new_stars
