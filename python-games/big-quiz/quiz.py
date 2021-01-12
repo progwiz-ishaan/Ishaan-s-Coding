@@ -19,6 +19,10 @@ answer_boxes = [answer_box1, answer_box2, answer_box3, answer_box4]
 score = 0
 time_left = 10
 
+q1 = ['What is the captial of France?', 'London', 'Paris', 'Berlin', 'Tokyo', 2]
+q2 = ['5 + 7 = ?', '12', '10', '14', '8', 1]
+q3 = ['What is the seventh month of the year', ]
+
 def draw():
     screen.fill('dim grey')
     screen.draw.filled_rect(main_box, 'sky blue')
