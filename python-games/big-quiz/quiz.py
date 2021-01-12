@@ -16,6 +16,9 @@ answer_box3.move_ip(50, 538)
 answer_box4.move_ip(735, 538)
 answer_boxes = [answer_box1, answer_box2, answer_box3, answer_box4]
 
+score = 0
+time_left = 10
+
 def draw():
     screen.fill('dim grey')
     screen.draw.filled_rect(main_box, 'sky blue')
