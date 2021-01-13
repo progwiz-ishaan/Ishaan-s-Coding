@@ -20,9 +20,18 @@ answer_boxes = [answer_box1, answer_box2, answer_box3, answer_box4]
 score = 0
 time_left = 10
 
-q1 = ['What is the captial of France?', 'London', 'Paris', 'Berlin', 'Tokyo', 2]
+q1 = ['What is the captial of France?', 
+      'London', 'Paris', 'Berlin', 'Tokyo', 2]
 q2 = ['5 + 7 = ?', '12', '10', '14', '8', 1]
-q3 = ['What is the seventh month of the year', ]
+q3 = ['What is the seventh month of the year', 
+      'April', 'May', 'June', 'July', 4]
+q4 = ['Which planet is closest to the Sun?', 
+      'Saturn', 'Neptune', 'Mercury', 'Venus', 3]
+q5 = ['Where are the pyramids?', 
+      'India', 'Egypt', 'Morocco', 'Canada', 2]
+
+questions = [q1, q2, q3, q4, q5]
+question = questions.pop()
 
 def draw():
     screen.fill('dim grey')
