@@ -24,4 +24,13 @@ number_of_updates = 0
 
 scores = []
 
+def update_high_scores():
+    pass
+
+def display_high_scores():
+    pass
+
+def draw():
+    pass
+
 pgzrun.go()
