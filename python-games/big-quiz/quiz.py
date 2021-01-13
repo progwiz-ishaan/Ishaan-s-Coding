@@ -35,8 +35,8 @@ question = questions.pop(0)
 
 def draw():
     screen.fill('dim grey')
-    screen.draw.filled_rect(main_box, 'sky blue')
-    screen.draw.filled_rect(timer_box, 'sky blue')
+    screen.draw.filled_rect(main_box, 'royal blue')
+    screen.draw.filled_rect(timer_box, 'royal blue')
 
     for box in answer_boxes:
         screen.draw.filled_rect(box, 'orange')
@@ -71,10 +71,8 @@ def on_mouse_down(pos):
         if box.collidepoint(pos):
             print('Clicked on answer ' + str(index))
             if index == question[5]:
-                print('You got it correct!')
                 correct_answer()
             else:
-                print('Opps! Wrong answer!')
                 game_over()
         index = index + 1
 
@@ -84,7 +82,6 @@ def update_time_left():
     if time_left:
         time_left = time_left - 1
     else:
-        print('Time up!')
         game_over()
 
 clock.schedule_interval(update_time_left, 1.0)
