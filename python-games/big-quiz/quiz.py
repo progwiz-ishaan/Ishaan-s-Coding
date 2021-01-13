@@ -70,9 +70,23 @@ def on_mouse_down(pos):
     for box in answer_boxes:
         if box.collidepoint(pos):
             print('Clicked on answer ' + str(index))
+            if index == question[5]:
+                print('You got it correct!')
+                correct_answer()
+            else:
+                print('Opps! Wrong answer!')
+                game_over()
         index = index + 1
 
 def update_time_left():
-    pass
+    global time_left
+
+    if time_left:
+        time_left = time_left - 1
+    else:
+        print('Time up!')
+        game_over()
+
+clock.schedule_interval(update_time_left, 1.0)
 
 pgzrun.go()
