@@ -1,4 +1,4 @@
-WIDTH = 1208
+WIDTH = 1280
 HEIGHT = 720
 
 main_box = Rect(0, 0, 820, 240)
