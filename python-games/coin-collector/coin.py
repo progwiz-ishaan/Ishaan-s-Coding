@@ -1,3 +1,4 @@
+import pgzrun
 from random import randint
 WIDTH = 400
 HEIGHT = 400
@@ -48,3 +49,5 @@ def update():
 
 clock.schedule(time_up, 7.0)
 place_coin()
+
+pgzrun.go()

@@ -43,3 +43,5 @@ def on_mouse_down():
 
 def update_time_left():
     pass
+
+pgzrun.go()

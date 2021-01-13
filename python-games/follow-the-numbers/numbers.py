@@ -1,3 +1,4 @@
+import pgzrun
 from random import randint
 
 WIDTH = 400
@@ -36,3 +37,5 @@ def on_mouse_down(pos):
     else:
         lines = []
         next_dot = 0
+
+pgzrun.go()

@@ -1,3 +1,4 @@
+import pgzrun
 import random
 
 FONT_COLOUR = (225, 225, 225)
@@ -103,3 +104,5 @@ def display_message(heading_text, sub_heading_text):
     fontsize=30,
     center=(CENTER_X, CENTER_Y + 30),
     color=FONT_COLOUR)
+
+pgzrun.go()
