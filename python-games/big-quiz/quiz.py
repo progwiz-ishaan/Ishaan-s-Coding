@@ -41,6 +41,14 @@ def draw():
     for box in answer_boxes:
         screen.draw.filled_rect(box, 'orange')
 
+        screen.draw.textbox(str(time_left), timer_box, color=('black'))
+        screen.draw.textbox(question[9], main_box, color=('black'))
+
+        index = 1
+        for box in answer_boxes:
+            screen.draw.textbox(question[index], box, color=('black'))
+            index = index + 1
+
 def game_over():
     pass
 
