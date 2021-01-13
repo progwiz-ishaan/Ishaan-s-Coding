@@ -42,7 +42,7 @@ def draw():
         screen.draw.filled_rect(box, 'orange')
 
         screen.draw.textbox(str(time_left), timer_box, color=('black'))
-        screen.draw.textbox(question[9], main_box, color=('black'))
+        screen.draw.textbox(question[0], main_box, color=('black'))
 
         index = 1
         for box in answer_boxes:
