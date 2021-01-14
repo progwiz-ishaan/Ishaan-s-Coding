@@ -25,7 +25,19 @@ number_of_updates = 0
 scores = []
 
 def update_high_scores():
-    pass
+    global score, scores
+    filename = r"/home/ishaan/Documents/Ishaan'\''s-Coding/python-games/balloon-flight/high-scores.txt"
+    scores = []
+    with open(filename, "r") as file:
+        line = file.readline()
+        high_scores = line.split()
+        for high_score in high_scores:
+            if(score > int(high_score)):
+                scores.append(str(score) + ' ')
+                score = int(high_score)
+            else:
+                scores.append(str(high_score))
+
 
 def display_high_scores():
     pass
