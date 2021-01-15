@@ -30,4 +30,45 @@ down = Actor('down')
 down.pos = CENTER_X, CENTER_Y + 230
 left = Actor('left')
 left.pos = CENTER_X - 60, CENTER_Y + 170
-pgzrun.go()
+
+def draw():
+    global game_over, score, say_dance
+    global count, show_countdown
+    if not game_over:
+        screen.clear()
+        screen.blit('stage', (0, 0))
+        dancer.draw()
+        up.draw()
+        down.draw()
+        left.draw()
+        right.draw()
+        screen.draw.text('Score: ' +
+                         str(score), color='black',
+                         topleft=(10, 10))
+    return
+
+def reset_dancer():
+    pass
+
+def update_dancer(move):
+    pass
+
+def display_moves():
+    pass
+
+def genrate_moves():
+    pass
+
+def countdown():
+    pass
+
+def next_move():
+    pass
+
+def on_key_up(key):
+    pass
+
+def update():
+    pass
+
+pgzrun.go() 
