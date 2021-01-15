@@ -26,7 +26,7 @@ scores = []
 
 def update_high_scores():
     global score, scores
-    filename = r"/home/ishaan/Documents/Ishaan'\''s-Coding/python-games/balloon-flight/high-scores.txt"
+    filename = r"home/ishaan/Documents/Ishaan's-Coding/python-games/balloon-flight/high-scores.txt"
     scores = []
     with open(filename, "r") as file:
         line = file.readline()
@@ -40,7 +40,11 @@ def update_high_scores():
 
 
 def display_high_scores():
-    pass
+    screen.draw.text('HIGH SCORES', (350, 150), color='black')
+    y = 175
+    position = 1
+    for high_score in high_scores:
+        screen.draw.text(str(position) + '. ' + high_score, (350, y), color='black')
 
 def draw():
     screen.blit('background', (0, 0))
