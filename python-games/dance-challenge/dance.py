@@ -19,4 +19,15 @@ show_countdown = True
 moves_complete = False
 game_over = False
 
+dancer = Actor('dancer-start')
+dancer.pos = CENTER_X + 5, CENTER_Y - 40
+
+up = Actor('up')
+up.pos = CENTER_X, CENTER_Y + 110
+right = Actor('right')
+right.pos = CENTER_X + 60, CENTER_Y + 170
+down = Actor('down')
+down.pos = CENTER_X, CENTER_Y + 230
+left = Actor('left')
+left.pos = CENTER_X - 60, CENTER_Y + 170
 pgzrun.go()
