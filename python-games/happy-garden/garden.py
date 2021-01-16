@@ -37,7 +37,7 @@ def draw():
             fangflower.draw()
         time_elasped = int(time.time() - start_time)
         screen.draw.text(
-            'Garden happy for:' + 
+            'Garden happy for: ' + 
             str(time_elasped) + ' seconds',
             topleft=(10, 10), color='black'
         )
