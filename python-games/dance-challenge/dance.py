@@ -182,5 +182,7 @@ def update():
             genrate_moves()
             moves_complete = False
             current_move = 0
+    else:
+        music.stop()
 
 pgzrun.go() 
