@@ -54,7 +54,7 @@ def draw():
     else:
         screen.clear()
         screen.blit('stage', (0, 0))
-        screen.draw.text('Score: ', color='black' + str(score),
+        screen.draw.text('Score: ' + str(score), color='black',
                          topleft=(10, 10))
         screen.draw.text('GAME OVER!', color='black', topleft=(CENTER_X - 130, 220), fontsize=60)
     return
@@ -145,16 +145,41 @@ def on_key_up(key):
     global score, game_over, move_list, current_move
     if key == keys.UP:
         update_dancer(0)
+        if move_list[current_move] == 0:
+            score += 1
+            next_move()
+        else:
+            game_over = True
     elif key == keys.DOWN:
         update_dancer(2)
+        if move_list[current_move] == 2:
+            score += 1
+            next_move()
+        else:
+            game_over = True
     elif key == keys.RIGHT:
         update_dancer(1)
+        if move_list[current_move] == 1:
+            score += 1
+            next_move()
+        else:
+            game_over = True
     elif key == keys.LEFT:
         update_dancer(3)
+        if move_list[current_move] == 3:
+            score += 1
+            next_move()
+        else:
+            game_over = True
 
 genrate_moves()
 
 def update():
-    pass
+    global game_over, current_move, moves_complete
+    if not game_over:
+        if moves_complete:
+            genrate_moves()
+            moves_complete = False
+            current_move = 0
 
 pgzrun.go() 
