@@ -42,4 +42,25 @@ def draw():
             topleft=(10, 10), color='black'
         )
 
+def new_flower():
+    pass
+
+def add_flowers():
+    pass
+
+def check_wilt_times():
+    pass
+
+def wilt_flower():
+    pass
+
+def check_flower_collision():
+    pass
+
+def reset_cow():
+    pass
+
+def update():
+    pass
+
 pgzrun.go()
