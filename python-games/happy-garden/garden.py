@@ -14,3 +14,7 @@ fangflower_collision = False
 
 time_elasped = 0
 start_time = time.time()
+
+cow = Actor('cow')
+cow.pos = 100, 500
+
