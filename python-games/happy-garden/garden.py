@@ -41,3 +41,5 @@ def draw():
             str(time_elasped) + ' seconds',
             topleft=(10, 10), color='black'
         )
+
+pgzrun.go()
