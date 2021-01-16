@@ -173,6 +173,7 @@ def on_key_up(key):
             game_over = True
 
 genrate_moves()
+music.play('vanishing-horizon')
 
 def update():
     global game_over, current_move, moves_complete
