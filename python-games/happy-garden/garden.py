@@ -61,19 +61,43 @@ def check_wilt_times():
     pass
 
 def wilt_flower():
-    pass
+    global flower_list, wilted_list, game_over
+    if not game_over:
+        if flower_list:
+            rand_flower = randint(0, len(flower_list) - 1)
+            if (flower_list[rand_flower].image == 'flower'):
+                flower_list[rand_flower].image = 'flower-wilt'
+                wilted_list[rand_flower] = time.time()
+        clock.schedule(wilt_flower, 3)
+    return
 
 def check_flower_collision():
-    pass
+    global cow, flower_list, wilted_list
+    index = 0
+    for flower in flower_list:
+        if (flower.colliderect(cow) and
+                flower.image == 'flower-wilt'):
+            flower.image = 'flower'
+            wilted_list[index] = 'happy'
+            break
+        index += 1
+    return
 
 def reset_cow():
-    pass
+    global game_over
+    if not game_over:
+        cow.image = 'cow'
+    return
 
 add_flowers()
 
 def update():
     global score, game_over, fangflower_collision, flower_list, fangflower_list, time_elasped
     if not game_over:
+        if keyboard.space:
+            cow.image = 'cow-water'
+            clock.schedule(reset_cow, 0.5)
+            check_flower_collision()
         if keyboard.left and cow.x > 0:
             cow.x -= 5
         elif keyboard.right and cow.x < WIDTH:
