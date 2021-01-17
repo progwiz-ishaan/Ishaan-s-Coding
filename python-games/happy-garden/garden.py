@@ -61,6 +61,15 @@ def reset_cow():
     pass
 
 def update():
-    pass
+    global score, game_over, fangflower_collision, flower_list, fangflower_list, time_elasped
+    if not game_over:
+        if keyboard.left and cow.x > 0:
+            cow.x -= 5
+        elif keyboard.right and cow.x < WIDTH:
+            cow.x += 5
+        elif keyboard.up and cow.y > 150:
+            cow.y -= 5
+        elif keyboard.down and cow.y < HEIGHT:
+            cow.y += 5
 
 pgzrun.go()
