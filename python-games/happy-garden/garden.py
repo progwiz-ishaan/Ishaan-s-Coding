@@ -38,9 +38,23 @@ def draw():
         time_elasped = int(time.time() - start_time)
         screen.draw.text(
             'Garden happy for: ' + 
-            str(time_elasped) + ' seconds',
+            str(time_elasped) + ' seconds.',
             topleft=(10, 10), color='black'
         )
+    else:
+        if not finalised:
+            cow.draw()
+            screen.draw.text(
+                'Garden happy for: ' +
+                str(time_elasped) + ' seconds.',
+                topleft=(10, 10), color='black'
+            )
+            if not garden_happy:
+                screen.draw.text(
+                    'GARDEN UNHAPPY - GAME OVER', color='black',
+                    topleft=(10, 50)
+                )
+                finalised = True
 
 def new_flower():
     global flower_list, wilted_list
@@ -58,7 +72,16 @@ def add_flowers():
     return
 
 def check_wilt_times():
-    pass
+    global wilted_list, game_over, garden_happy
+    if wilted_list:
+        for wilted_since in wilted_list:
+            if (not wilted_since == 'happy'):
+                time_wilted = int(time.time() - wilted_since)
+                if (time_wilted) > 10.0:
+                    garden_happy = False
+                    game_over = True
+                    break
+    return
 
 def wilt_flower():
     global flower_list, wilted_list, game_over
@@ -90,9 +113,11 @@ def reset_cow():
     return
 
 add_flowers()
+wilt_flower()
 
 def update():
     global score, game_over, fangflower_collision, flower_list, fangflower_list, time_elasped
+    check_wilt_times()
     if not game_over:
         if keyboard.space:
             cow.image = 'cow-water'
