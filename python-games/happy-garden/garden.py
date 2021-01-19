@@ -55,6 +55,11 @@ def draw():
                     topleft=(10, 50)
                 )
                 finalised = True
+            else:
+                screen.draw.text(
+                    'FANGFLOWER ATTACK - GAME OVER!', color='black',
+                    topleft=(10, 10)
+                )
 
 def new_flower():
     global flower_list, wilted_list
@@ -106,6 +111,60 @@ def check_flower_collision():
         index += 1
     return
 
+def check_fangflower_collision():
+    global cow, fangflower_list, fangflower_collision, game_over
+    for fangflower in fangflower_list:
+        if fangflower.colliderect(cow):
+            cow.image = 'zap'
+            game_over = True
+            break
+    return
+
+def velocity():
+    random_dir = randint(0, 1)
+    random_velocity = randint(2, 3)
+    if random_dir == 0:
+        return -random_velocity
+    else:
+        return random_velocity
+
+def mutate():
+    global flower_list, fangflower_list, fangflower_vy_list, fangflower_vx_list, game_over
+    if not game_over and flower_list:
+        rand_flower = randint(0, len(flower_list) - 1)
+        fangflower_pos_x = flower_list[rand_flower].x
+        fangflower_pos_y = flower_list[rand_flower].y
+        del flower_list[rand_flower]
+        fangflower = Actor('fangflower')
+        fangflower.pos = fangflower_pos_x, fangflower_pos_y
+        fangflower_vx = velocity()
+        fangflower_vy = velocity()
+        fangflower = fangflower_list.append(fangflower)
+        fangflower_vx_list.append(fangflower_vx)
+        fangflower_vy_list.append(fangflower_vy)
+        clock.schedule(mutate, 20)
+    return
+
+def update_fangflowers():
+    global fangflower_list, game_over
+    if not game_over:
+        index = 0
+        for fangflower in fangflower_list:
+            fangflower_vx = fangflower_vx_list[index]
+            fangflower_vy = fangflower_vy_list[index]
+            fangflower.x = fangflower.x + fangflower_vx
+            fangflower.y = fangflower.y + fangflower_vy
+            if fangflower.left < 0:
+                fangflower_vx_list[index] = -fangflower_vx
+            if fangflower.right > WIDTH:
+                fangflower_vx_list[index] = -fangflower_vx
+            if fangflower.top < 150:
+                fangflower_vy_list[index] = -fangflower_vy
+            if fangflower.bottom > HEIGHT:
+                fangflower_vy_list[index] = -fangflower_vy
+            index += 1
+    return
+
 def reset_cow():
     global game_over
     if not game_over:
@@ -117,6 +176,7 @@ wilt_flower()
 
 def update():
     global score, game_over, fangflower_collision, flower_list, fangflower_list, time_elasped
+    fangflower_collision = check_fangflower_collision()
     check_wilt_times()
     if not game_over:
         if keyboard.space:
@@ -131,5 +191,8 @@ def update():
             cow.y -= 5
         elif keyboard.down and cow.y < HEIGHT:
             cow.y += 5
+        if time_elasped == 15 and not fangflower_list:
+            mutate()
+        update_fangflowers()
 
 pgzrun.go()
