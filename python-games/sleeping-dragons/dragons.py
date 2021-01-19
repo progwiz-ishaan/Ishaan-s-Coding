@@ -19,3 +19,5 @@ eggs_collected = 0
 game_over = False
 game_comlpete = False
 reset_required = False
+
+pgzrun.go()
