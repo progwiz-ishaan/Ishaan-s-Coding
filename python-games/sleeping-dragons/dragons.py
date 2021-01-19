@@ -20,4 +20,38 @@ game_over = False
 game_comlpete = False
 reset_required = False
 
+easy_lair = {
+    'dragon': Actor('dragon-asleep', pos=(600, 100)),
+    'eggs': Actor('one-eggs', pos=(400, 100)),
+    'egg_count': 1,
+    'egg_hidden': False,
+    'egg_hide_counter': 0,
+    'sleep_length': 10,
+    'sleep_counter': 0,
+    'wake_counter': 0
+}
+
+medium_lair = {
+    'dragon': Actor('dragon-asleep', pos=(600, 300)),
+    'eggs': Actor('two-eggs', pos=(400, 300)),
+    'egg_count': 2,
+    'egg_hidden': False,
+    'egg_hide_counter': 0,
+    'sleep_length': 7,
+    'sleep_counter': 0,
+    'wake_counter': 0
+}
+
+hard_lair = {
+    'dragon': Actor('dragon-asleep', pos=(600, 500)),
+    'eggs': Actor('three-eggs', pos=(400, 500)),
+    'egg_count': 3,
+    'egg_hidden': False,
+    'egg_hide_counter': 0,
+    'sleep_length': 4,
+    'sleep_counter': 0,
+    'wake_counter': 0
+}
+
+
 pgzrun.go()
