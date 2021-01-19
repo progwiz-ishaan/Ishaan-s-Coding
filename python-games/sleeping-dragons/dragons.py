@@ -90,7 +90,7 @@ def draw_counters(eggs_collected, lives):
 def update():
     if keyboard.right:
         hero.x += MOVE_DISTANCE
-        if hero.left > WIDTH:
+        if hero.x > WIDTH:
             hero.x = WIDTH
     elif keyboard.left:
         hero.x -= MOVE_DISTANCE
