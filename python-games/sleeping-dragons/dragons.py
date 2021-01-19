@@ -72,7 +72,7 @@ def draw():
 def draw_lairs(lairs_to_draw):
     for lair in lairs_to_draw:
         lair['dragon'].draw()
-        if lair['egg-hidden'] is False:
+        if lair['egg_hidden'] is False:
             lair['eggs'].draw()
 
 def draw_counters(eggs_collected, lives):
@@ -88,11 +88,11 @@ def draw_counters(eggs_collected, lives):
     color=FONT_COLOUR)
 
 def update():
-    if keyboard.left:
+    if keyboard.right:
         hero.x += MOVE_DISTANCE
         if hero.left > WIDTH:
             hero.x = WIDTH
-    elif keyboard.right:
+    elif keyboard.left:
         hero.x -= MOVE_DISTANCE
         if hero.x < 0:
             hero.x = 0
