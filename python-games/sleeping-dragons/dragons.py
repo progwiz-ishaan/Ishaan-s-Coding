@@ -70,9 +70,43 @@ def draw():
         draw_counters(eggs_collected, lives)
 
 def draw_lairs(lairs_to_draw):
-    pass
+    for lair in lairs_to_draw:
+        lair['dragon'].draw()
+        if lair['egg-hidden'] is False:
+            lair['eggs'].draw()
 
 def draw_counters(eggs_collected, lives):
+    screen.blit('egg-count', (0, HEIGHT - 30))
+    screen.draw.text(str(eggs_collected),
+    fontsize=40,
+    pos=(30, HEIGHT - 30),
+    color=FONT_COLOUR)
+    screen.blit('life-count', (60, HEIGHT - 30))
+    screen.draw.text(str(lives),
+    fontsize=40,
+    pos=(60, HEIGHT - 30),
+    color=FONT_COLOUR)
+
+def update():
+    if keyboard.left:
+        hero.x += MOVE_DISTANCE
+        if hero.left > WIDTH:
+            hero.x = WIDTH
+    elif keyboard.right:
+        hero.x -= MOVE_DISTANCE
+        if hero.x < 0:
+            hero.x = 0
+    elif keyboard.up:
+        hero.y -= MOVE_DISTANCE
+        if hero.y < 0:
+            hero.y = 0
+    elif keyboard.down:
+        hero.y += MOVE_DISTANCE
+        if hero.y > HEIGHT:
+            hero.y = HEIGHT
+    check_for_collisions()
+
+def check_for_collisions():
     pass
 
 pgzrun.go()
