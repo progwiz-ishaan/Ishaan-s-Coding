@@ -58,7 +58,7 @@ def draw():
             else:
                 screen.draw.text(
                     'FANGFLOWER ATTACK - GAME OVER!', color='black',
-                    topleft=(10, 10)
+                    topleft=(10, 50)
                 )
 
 def new_flower():
