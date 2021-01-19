@@ -13,3 +13,9 @@ ATTACK_DISTANCE = 200
 DRAGON_WAKE_TIME = 2
 EGG_HIDE_TIME = 2
 MOVE_DISTANCE = 5
+
+lives = 3
+eggs_collected = 0
+game_over = False
+game_comlpete = False
+reset_required = False
