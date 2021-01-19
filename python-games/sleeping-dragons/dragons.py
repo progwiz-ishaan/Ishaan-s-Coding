@@ -53,5 +53,8 @@ hard_lair = {
     'wake_counter': 0
 }
 
+lairs = [easy_lair, medium_lair, hard_lair]
+hero = Actor('hero', pos=HERO_START)
+
 
 pgzrun.go()
