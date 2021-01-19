@@ -84,7 +84,7 @@ def draw_counters(eggs_collected, lives):
     screen.blit('life-count', (60, HEIGHT - 30))
     screen.draw.text(str(lives),
     fontsize=40,
-    pos=(60, HEIGHT - 30),
+    pos=(90, HEIGHT - 30),
     color=FONT_COLOUR)
 
 def update():
@@ -105,6 +105,11 @@ def update():
         if hero.y > HEIGHT:
             hero.y = HEIGHT
     check_for_collisions()
+
+def update_lairs():
+    global lairs, hero, lives
+    for lair in lairs:
+        f
 
 def check_for_collisions():
     pass
