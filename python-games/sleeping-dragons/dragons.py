@@ -56,5 +56,23 @@ hard_lair = {
 lairs = [easy_lair, medium_lair, hard_lair]
 hero = Actor('hero', pos=HERO_START)
 
+def draw():
+    global lairs, eggs_collected, lives, game_comlpete
+    screen.clear()
+    screen.blit('dungeon', (0, 0))
+    if game_over:
+        screen.draw.text('GAME OVER!', fontsize=60, center=CENTER, color=FONT_COLOUR)
+    elif game_comlpete:
+        screen.draw.text('YOU WON!', fontsize=60, center=CENTER, color=FONT_COLOUR)
+    else:
+        hero.draw()
+        draw_lairs(lairs)
+        draw_counters(eggs_collected, lives)
+
+def draw_lairs(lairs_to_draw):
+    pass
+
+def draw_counters(eggs_collected, lives):
+    pass
 
 pgzrun.go()
