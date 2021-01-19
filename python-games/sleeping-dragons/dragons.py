@@ -22,7 +22,7 @@ reset_required = False
 
 easy_lair = {
     'dragon': Actor('dragon-asleep', pos=(600, 100)),
-    'eggs': Actor('one-eggs', pos=(400, 100)),
+    'eggs': Actor('one-egg', pos=(400, 100)),
     'egg_count': 1,
     'egg_hidden': False,
     'egg_hide_counter': 0,
