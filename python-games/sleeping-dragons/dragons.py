@@ -125,7 +125,7 @@ def update_dragon_sleeping(lair):
         lair['sleep_counter'] += 1
 
 def update_waking_dragon(lair):
-    if lair['wake_counter'] >= lair['wake_length']:
+    if lair['wake_counter'] >= DRAGON_WAKE_TIME:
         lair['dragon'].image = 'dragon-asleep'
         lair['wake_counter'] = 0
     else:
