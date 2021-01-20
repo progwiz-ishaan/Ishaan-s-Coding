@@ -162,9 +162,9 @@ def handle_dragon_collision():
 
 def check_for_egg_collision(lair):
     global eggs_collected, game_comlpete
-    if hero.collidrect(lair['eggs']):
+    if hero.colliderect(lair['eggs']):
         lair['egg_hidden'] = True
-        eggs_collected += lair['egg-count']
+        eggs_collected += lair['egg_count']
         if eggs_collected >= EGG_TARGET:
             game_comlpete = True
 
