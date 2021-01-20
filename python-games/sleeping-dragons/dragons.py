@@ -144,8 +144,7 @@ def check_for_collisions():
     for lair in lairs:
         if lair['egg_hidden'] is False:
             check_for_egg_collision(lair)
-        if lair['dragon'].image == 'dragon-awake' and \
-            reset_required is False:
+        if lair['dragon'].image == 'dragon-awake' and reset_required is False:
                 check_for_dragon_collision(lair)
         
 def check_for_dragon_collision(lair):
@@ -158,7 +157,7 @@ def check_for_dragon_collision(lair):
 def handle_dragon_collision():
     global reset_required
     reset_required = True
-    animate(hero, pos=HERO_START, on_finshed=subtract_life)
+    animate(hero, pos=HERO_START, on_finished=subtract_life)
 
 def check_for_egg_collision(lair):
     global eggs_collected, game_comlpete
