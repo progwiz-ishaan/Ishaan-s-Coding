@@ -140,6 +140,39 @@ def update_egg(lair):
             lair['egg_hide_counter'] += 1
 
 def check_for_collisions():
-    pass
+    global lairs, eggs_collected, lives, reset_required, game_comlpete
+    for lair in lairs:
+        if lair['egg_hidden'] is False:
+            check_for_egg_collision(lair)
+        if lair['dragon'].image == 'dragon-awake' and \
+            reset_required is False:
+                check_for_dragon_collision(lair)
+        
+def check_for_dragon_collision(lair):
+    x_distance = hero.x - lair['dragon'].x
+    y_distance = hero.y - lair['dragon'].y
+    distance =  math.hypot(x_distance, y_distance)
+    if distance < ATTACK_DISTANCE:
+        handle_dragon_collision()
+
+def handle_dragon_collision():
+    global reset_required
+    reset_required = True
+    animate(hero, pos=HERO_START, on_finshed=subtract_life)
+
+def check_for_egg_collision(lair):
+    global eggs_collected, game_comlpete
+    if hero.collidrect(lair['eggs']):
+        lair['egg_hidden'] = True
+        eggs_collected += lair['egg-count']
+        if eggs_collected >= EGG_TARGET:
+            game_comlpete = True
+
+def subtract_life():
+    global lives, game_over, reset_required
+    lives -= 1
+    if lives == 0:
+        game_over = True
+    reset_required = False
 
 pgzrun.go()
