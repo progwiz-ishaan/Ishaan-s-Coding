@@ -1,13 +1,14 @@
 ############################################################
 ## 1. A face is drawn and at the topleft corner the face number is drawn.
-## If the player presses [DOWN] the face gets more sad.
-## If the player presses [UP] the face gets more happy.
-## The goal of the game if to make the face's mood good.
-## The player has to press the [ENTER] key when he/she thinks the the mood is normal.
+## Each second, the face changes to more happy and then when it reaches the limit it reverses back to sad each
+## second.
+## The goal of the game is to press the [ENTER] key when the player thinks that the current face is the nor-
+## -mal face. 
 ## If the face is too happy or sad then it's game over.
 ############################################################
 import pgzrun
 from random import randint
+import time
 
 # The consonants
 WIDTH = 400
@@ -36,13 +37,10 @@ def draw():
         topleft=(10, 10)
     )
 
-# This function checks if the [UP] key is pressed.
-def update():
-        if face.image == 'sad-face' and keyboard.up:
-            face.image = 'sad-face1'
-        elif face.image == 'sad-face1' and keyboard.up:
-            face.image = 'sad-face2'
-        elif face.image == 'sad-face2' and keyboard.up:
-            face.image = 'sad-face3'
+# This function loop through the faces.
+def loop():
+    scren.draw.text('GO!!', color=(65, 105, 225),
+    center=(CENTER_X, CENTER_Y - 50))
+
 
 pgzrun.go()
