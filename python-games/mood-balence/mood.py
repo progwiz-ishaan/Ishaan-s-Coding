@@ -1,7 +1,7 @@
 ############################################################
 ## 1. A face is drawn and at the topleft corner the face number is drawn.
-## If the player presses [S] the face gets more sad.
-## If the player presses [H] the face gets more happy.
+## If the player presses [DOWN] the face gets more sad.
+## If the player presses [UP] the face gets more happy.
 ## The goal of the game if to make the face's mood good.
 ## The player has to press the [ENTER] key when he/she thinks the the mood is normal.
 ## If the face is too happy or sad then it's game over.
@@ -35,5 +35,14 @@ def draw():
         color=(65, 105, 225),
         topleft=(10, 10)
     )
+
+# This function checks if the [UP] key is pressed.
+def update():
+        if face.image == 'sad-face' and keyboard.up:
+            face.image = 'sad-face1'
+        elif face.image == 'sad-face1' and keyboard.up:
+            face.image = 'sad-face2'
+        elif face.image == 'sad-face2' and keyboard.up:
+            face.image = 'sad-face3'
 
 pgzrun.go()
