@@ -1,4 +1,5 @@
 import pgzrun
+from random import randint
 
 WIDTH = 400
 HEIGHT = 400
@@ -10,6 +11,5 @@ HAPPY_FACES_NEEDED = 14
 game_over = False
 game_complete = False
 happy_face_count = 0
-
 
 pgzrun.go()
