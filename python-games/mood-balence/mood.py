@@ -8,7 +8,7 @@
 ############################################################
 import pgzrun
 from random import randint
-import time
+from time import sleep
 
 # The consonants
 WIDTH = 400
@@ -22,13 +22,15 @@ HAPPY_FACES_NEEDED = randint(2, 5)
 game_over = False
 game_complete = False
 face_count = 0
+loop_number = 0
+going = True
 
 # This is the face's variable
 face = Actor('sad-face', pos=CENTER)
 
 # This function performs the first step.
 def draw():
-    screen.clear()
+    global going
     face.draw()
     screen.draw.text(
         'Face.no: ' + 
@@ -36,11 +38,25 @@ def draw():
         color=(65, 105, 225),
         topleft=(10, 10)
     )
+    loop()
 
 # This function loop through the faces.
 def loop():
-    scren.draw.text('GO!!', color=(65, 105, 225),
-    center=(CENTER_X, CENTER_Y - 50))
-
+    global face_count, loop_number, going
+    loop_number += 1
+    if face.image == 'sad-face':
+        sleep(1)
+    elif face.image == 'sad-face1':
+         sleep(1)
+        face.image = 'sad-face2'
+        face_count += 1
+    elif face.image == 'sad-face2':
+        sleep(1)
+        face.image = 'sad-face3'
+        face_count += 1
+    elif face.image == 'sad-face3':
+        sleep(1)
+        face.image = 'sad-face4'
+        face_count += 1
 
 pgzrun.go()
