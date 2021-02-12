@@ -14,4 +14,17 @@ def update_clue(guessed_letter, secret_word, clue):
             clue[index] = char
         index += 1
 
-print(heart_symbol)
+while lives > 0:
+    print(clue)
+    print('Lives left: ' + heart_symbol * lives)
+    guess = input('Guess a letter or the whole word: ')
+
+    if guess == secret_word:
+        guessed_word_correctly = True
+        break
+
+    if guess in secret_word:
+        update_clue(guess, secret_word, clue)
+    else:
+        print('Incorrect. You lost a life.')
+        lives -= 1
