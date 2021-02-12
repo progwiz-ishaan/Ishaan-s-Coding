@@ -18,7 +18,6 @@ while lives > 0:
     print(clue)
     print('Lives left: ' + heart_symbol * lives)
     guess = input('Guess a letter or the whole word: ')
-
     if guess == secret_word:
         guessed_word_correctly = True
         break
