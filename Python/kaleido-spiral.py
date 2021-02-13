@@ -1,9 +1,12 @@
 import turtle as t
 from itertools import cycle
 
+t.hideturtle()
+
 colors = cycle(['red', 'orange', 'blue', 'purple', 'yellow', 'green'])
 
 def draw_circle(size, angle, shift):
+    t.bgcolor(next(colors))
     t.pencolor(next(colors))
     t.circle(size)
     t.right(angle)
