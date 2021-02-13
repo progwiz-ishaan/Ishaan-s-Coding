@@ -17,5 +17,3 @@ t.bgcolor('black')
 t.speed('fast')
 t.pensize(4)
 draw_circle(30, 0, 1)
-
-keep_going_var = input()
