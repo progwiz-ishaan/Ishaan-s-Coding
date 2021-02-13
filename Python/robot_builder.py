@@ -1,24 +1,24 @@
-import turtle as t
+import turtle
 
 def rectangle(horizontal, vertical, color):
-    t.pendown()
-    t.pensize(1)
-    t.color(color)
-    t.begin_fill()
+    turtle.pendown()
+    turtle.pensize(1)
+    turtle.color(color)
+    turtle.begin_fill()
     for counter in range(1, 3):
-        t.forward(horizontal)
-        t.right(90)
-        t.forward(vertical)
-        t.right(90)
-    t.end_fill()
-    t.penup()
+        turtle.forward(horizontal)
+        turtle.right(90)
+        turtle.forward(vertical)
+        turtle.right(90)
+    turtle.end_fill()
+    turtle.penup()
 
-t.penup()
-t.speed('slow')
-t.bgcolor('Doger blue')
+turtle.penup()
+turtle.speed('slow')
+turtle.bgcolor('Doger blue')
 
 # feet
-t.goto(-100, -150)
+turtle.goto(-100, -150)
 rectangle(50, 20, 'blue')
-t.goto(-30, -150)
+turtle.goto(-30, -150)
 rectangle(50, 20, 'blue')
