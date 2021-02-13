@@ -8,7 +8,7 @@ def rectangle(horizontal, vertical, color):
     for counter in range(1, 3):
         t.forward(horizontal)
         t.right(90)
-        t.forward(vertical)
+        t.forward(vertical) # I know exatly which 1 did this error to my code! >:(
         t.right(90)
     t.end_fill()
     t.penup()
