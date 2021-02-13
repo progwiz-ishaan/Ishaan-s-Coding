@@ -15,7 +15,7 @@ def rectangle(horizontal, vertical, color):
 
 t.penup()
 t.speed('slow')
-t.bgcolor('Doger blue')
+t.bgcolor('Dodger blue')
 
 # feet
 t.goto(-100, -150)
@@ -26,7 +26,7 @@ rectangle(50, 20, 'blue')
 # legs
 t.goto(-25, -50)
 rectangle(15, 100, 'grey')
-t.goto(-55, 50)
+t.goto(-55, -50)
 rectangle(-15, 100, 'grey')
 
 # body
@@ -39,10 +39,12 @@ rectangle(60, 15, 'grey')
 t.goto(-150, 110)
 rectangle(15, 40, 'grey')
 
+t.right(5)
 t.goto(10, 70)
 rectangle(60, 15, 'grey')
-t.goto(-155, 110)
+t.goto(55, 110)
 rectangle(15, 40, 'grey')
+t.left(5)
 
 # neck
 t.goto(-50, 120)
@@ -53,15 +55,17 @@ t.goto(-85, 170)
 rectangle(80, 50, 'red')
 
 # eyes
-t.goto(-60, 160)
+t.goto(-60, 159)
 rectangle(30, 10, 'white')
-t.goto(-55, 155)
+t.goto(-55, 157)
 rectangle(5, 5, 'black')
 t.goto(-40, 155)
 rectangle(5, 5, 'black')
 
 # mouth
 t.goto(-65, 135)
-rectangle(60, 15, 'grey')
+rectangle(40, 5, 'black')
 
 t.hideturtle()
+
+going = input()
