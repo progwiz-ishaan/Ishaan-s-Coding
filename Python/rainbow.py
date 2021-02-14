@@ -20,3 +20,6 @@ def get_line_width():
     else:
         line_width = 10
     return line_width
+
+line_length = get_line_length ()
+line_width = get_line_width ()
