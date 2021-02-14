@@ -15,6 +15,7 @@ def draw_star(points, size, col, x, y):
 
 # Main code
 t.hideturtle()
+t.speed('fast')
 t.Screen().bgcolor('dark blue')
 
 while True:
