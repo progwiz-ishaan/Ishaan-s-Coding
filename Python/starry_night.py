@@ -1,4 +1,5 @@
 import turtle as t
+from random import randint, random
 
 def draw_star(points, size, col, x, y):
     t.penup()
@@ -13,7 +14,14 @@ def draw_star(points, size, col, x, y):
     t.end_fill()
 
 # Main code
+t.hideturtle()
 t.Screen().bgcolor('dark blue')
-draw_star(5, 50, 'dodger blue', 0, 0)
 
-keep_going_var = input()
+while True:
+    randPts = randint(2, 5) * 2 + 1
+    randSize = randint(10, 50)
+    randCol = (random(), random(), random())
+    randX = randint(-350, 350)
+    randY = randint(-250, 250)
+
+    draw_star(randPts, randSize, randCol, randX, randY)
