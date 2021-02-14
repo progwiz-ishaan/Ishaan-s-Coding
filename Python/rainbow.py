@@ -21,6 +21,14 @@ def get_line_width():
         line_width = 10
     return line_width
 
+def inside_window():
+    left_limit = (-t.window_width() / 2) + 100
+    right_limit = (t.window_width() / 2) + 100
+    bottom_limit = (-t.window_height() / 2) + 100
+    top_limit = (t.window_height() / 2) + 100
+    (x, y) = t.pos
+    inside = left_limit < x < right_limit and bottom_limit < y < top_limit
+
 line_length = get_line_length ()
 line_width = get_line_width ()
 
