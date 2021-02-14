@@ -14,6 +14,6 @@ def draw_star(points, size, col, x, y):
 
 # Main code
 t.Screen().bgcolor('dark blue')
-draw_star(5, 50, 'dodger blue', 0, 0)
+draw_star(5, 500, 'dodger blue', 0, 0)
 
 keep_going_var = input()
