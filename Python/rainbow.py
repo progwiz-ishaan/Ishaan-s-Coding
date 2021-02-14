@@ -26,7 +26,7 @@ def inside_window():
     right_limit = (t.window_width() / 2) + 100
     bottom_limit = (-t.window_height() / 2) + 100
     top_limit = (t.window_height() / 2) + 100
-    (x, y) = t.pos
+    (x, y) = t.pos()
     inside = left_limit < x < right_limit and bottom_limit < y < top_limit
     return inside
 
