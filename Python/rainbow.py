@@ -23,3 +23,9 @@ def get_line_width():
 
 line_length = get_line_length ()
 line_width = get_line_width ()
+
+t.shape('turtle')
+t.fillcolor('blue')
+t.bgcolor('black')
+t.speed('fastest')
+t.pensize(line_width)
