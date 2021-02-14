@@ -7,3 +7,5 @@ angle = 180 - (180 / points)
 for i in range(points):
     t.forward(size)
     t.right(angle)
+
+keep_going_var = input()
