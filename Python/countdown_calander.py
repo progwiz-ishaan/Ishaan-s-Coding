@@ -1,6 +1,8 @@
 from tkinter import Tk, Canvas
 from datetime import date, datetime
-
+def get_events():
+    list_events = []
+    with  open('events.txt')
 root = Tk()
 c = Canvas(root, width=800, height=800, bg='black')
 c.pack()
