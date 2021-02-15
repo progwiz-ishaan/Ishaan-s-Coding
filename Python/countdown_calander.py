@@ -15,6 +15,7 @@ def days_between_dates(date1, date2):
     number_of_days = time_between.split(' ')
     return number_of_days[0]
 root = Tk()
+root.title('My')
 c = Canvas(root, width=800, height=800, bg='black')
 c.pack()
 c.create_text(100, 50, anchor='w', fill='orange',\
@@ -27,7 +28,7 @@ for event in events:
     event_name = event[0]
     days_until = days_between_dates(event[1], today)
     display = 'It is %s days until %s' % (days_until, event_name)
-    c.create_text(100, v, anchor='w', fill='lightblue', font='Courier 28 bold', text=display)
+    c.create_text(0, v, anchor='w', fill='lightblue', font='Courier 28 bold', text=display)
     v += 30
 
 root.mainloop()
