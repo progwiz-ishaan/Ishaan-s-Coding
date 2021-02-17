@@ -1,6 +1,12 @@
 from tkinter import simpledialog, messagebox, Tk
 def is_even(num):
     return num % 2 == 0
+def get_even_letters(message):
+    even_letters = []
+    for counter in range(0, len(message)):
+        if is_even(counter):
+            even_letters.append(message[counter])
+    return even_letters
 def get_task():
     task = simpledialog.askstring('Task', 'Do you want to encrypt or decrypt?')
     return task
