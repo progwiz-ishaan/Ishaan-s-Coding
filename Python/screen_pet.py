@@ -9,6 +9,12 @@ def toggle_eyes():
     c.itemconfigure(pupil_right, state=new_state)
     c.itemconfigure(eye_left, fill=new_color)
     c.itemconfigure(eye_right, fill=new_color)
+
+def blink():
+    toggle_eyes()
+    root.after(250, toggle_eyes)
+    root.after(3000, blink)
+
 root = Tk()
 c = Canvas(root, width=400, height=400)
 c.configure(bg='dark blue', highlightthickness=0)
@@ -27,4 +33,5 @@ pupil_right = c.create_oval(240, 140, 250, 155, outline='black', fill='black')
 mouth_normal = c.create_line(170, 250, 200, 272, 230, 250, smooth=1, width=2, state=NORMAL)
 
 c.pack()
+root.after(1000, blink)
 root.mainloop()
