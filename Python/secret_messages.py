@@ -15,7 +15,7 @@ def get_odd_letters(message):
     return odd_letters
 def swap_letters(message):
     letter_list = []
-    if not is_even(message):
+    if not is_even(len(message)):
         message = message + 'x'
     even_letters = get_even_letters(message)
     odd_letters = get_odd_letters(message)
