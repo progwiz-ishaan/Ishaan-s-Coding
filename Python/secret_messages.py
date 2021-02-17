@@ -1,4 +1,6 @@
 from tkinter import simpledialog, messagebox, Tk
+def is_even(num):
+    return num % 2 == 0
 def get_task():
     task = simpledialog.askstring('Task', 'Do you want to encrypt or decrypt?')
     return task
