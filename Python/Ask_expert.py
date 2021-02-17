@@ -7,7 +7,7 @@ def read_from_file():
             country, city = line.split('/')
             the_world[country] = city
 def write_to_file(country_name, city_name):
-    with open('capital_data.txt') as file:
+    with open('capital_data.txt', 'a') as file:
         file.write('\n' + country_name + '/' + city_name)
 root = Tk()
 root.withdraw()
@@ -18,5 +18,11 @@ read_from_file()
 while True:
     query_country = simpledialog.askstring('Country', 'Type the name of the country:')
 
-    if query_country in the_world[query_country]:
-        result = the
+    if query_country in the_world:
+        result = the_world[query_country]
+        messagebox.showinfo('Answer',
+        'The capital city ' + query_country + ' is ' + result + '!')
+    else:
+        new_city = simpledialog.askstring('Teach me', 'I don\'t know! What is the captial city of ' + query_country + '?:')
+        the_world[query_country] = new_city
+        write_to_file(query_country, new_city)
