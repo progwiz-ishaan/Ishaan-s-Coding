@@ -31,6 +31,11 @@ eye_right = c.create_oval(230, 110, 260, 170, outline='black', fill='white')
 pupil_right = c.create_oval(240, 140, 250, 155, outline='black', fill='black')
 
 mouth_normal = c.create_line(170, 250, 200, 272, 230, 250, smooth=1, width=2, state=NORMAL)
+mouth_happy = c.create_line(170, 250, 200, 282, 230, 250, smooth=1, width=2, state=HIDDEN)
+mouth_sad = c.create_line(170, 250, 200, 232, 230, 250, smooth=1, width=2, state=HIDDEN)
+
+cheek_left = c.create_oval(70, 180, 120, 230, outline='pink', fill='pink' state=HIDDEN)
+cheek_right = c.create_oval(280, 180, 330, 230, outline='pink')
 
 c.pack()
 root.after(1000, blink)
