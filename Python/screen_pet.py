@@ -35,7 +35,7 @@ mouth_happy = c.create_line(170, 250, 200, 282, 230, 250, smooth=1, width=2, sta
 mouth_sad = c.create_line(170, 250, 200, 232, 230, 250, smooth=1, width=2, state=HIDDEN)
 
 cheek_left = c.create_oval(70, 180, 120, 230, outline='pink', fill='pink' state=HIDDEN)
-cheek_right = c.create_oval(280, 180, 330, 230, outline='pink')
+cheek_right = c.create_oval(280, 180, 330, 230, outline='pink', fill='pink', state=HIDDEN)
 
 c.pack()
 root.after(1000, blink)
