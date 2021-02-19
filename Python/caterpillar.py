@@ -68,3 +68,7 @@ text_turtle.hideturtle()
 score_turtle = t.Turtle()
 score_turtle.hideturtle()
 score_turtle.speed(0)
+
+t.onkey(start_game, 'space')
+t.listen()
+t.mainloop()
