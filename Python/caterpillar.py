@@ -13,6 +13,35 @@ def display_score(current_score):
 def place_leaf():
     pass
 
+def start_game():
+    global game_started
+    if game_started:
+        return
+    game_started = True
+
+    score = 0
+    text_turtle.clear()
+
+    caterpillar_speed = 2
+    caterpillar_length = 3
+    caterpillar.shapesize(1, caterpillar_length, 1)
+    caterpillar.showturtle()
+    display_score(score)
+    place_leaf()
+
+    while True:
+        caterpillar.forward(caterpillar_speed)
+        if caterpillar.distance(leaf) < 20:
+            place_leaf()
+            caterpillar_length += 1
+            caterpillar.shapesize(1, caterpillar_length, 1)
+            caterpillar_speed += 1
+            score += 10
+            display_score(score)
+        if outside_window():
+            game_over()
+            break
+
 t.bgcolor('yellow')
 
 caterpillar = t.Turtle()
