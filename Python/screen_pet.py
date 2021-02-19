@@ -32,6 +32,7 @@ def show_happy(event):
         c.itemconfigure(mouth_happy, state=NORMAL)
         c.itemconfigure(mouth_normal, state=HIDDEN)
         c.itemconfigure(mouth_sad, state=HIDDEN)
+        c.happy_level = 1
     return
 
 def toggle_tounge():
@@ -59,7 +60,17 @@ def hide_happy(event):
     c.itemconfigure(mouth_normal, state=NORMAL)
     c.itemconfigure(mouth_sad, state=HIDDEN)
 
+def sad():
+    if c.happy_level == 0:
+        c.itemconfigure(mouth_happy, state=HIDDEN)
+        c.itemconfigure(mouth_normal, state=HIDDEN)
+        c.itemconfigure(mouth_sad, state=NORMAL)
+    else:
+        c.happy_level -= 1
+    root.after(5000, sad)
+
 root = Tk()
+root.title('Screen pet')
 c = Canvas(root, width=400, height=400)
 c.configure(bg='dark blue', highlightthickness=0)
 c.body_color = 'SkyBlue1'
@@ -78,7 +89,7 @@ mouth_normal = c.create_line(170, 250, 200, 272, 230, 250, smooth=1, width=2, st
 mouth_happy = c.create_line(170, 250, 200, 282, 230, 250, smooth=1, width=2, state=HIDDEN)
 mouth_sad = c.create_line(170, 250, 200, 232, 230, 250, smooth=1, width=2, state=HIDDEN)
 tounge_main = c.create_rectangle(170, 250, 230, 290, outline='red', fill='red', state=HIDDEN)
-tounge_tip = c.create_rectangle(170, 285, 230, 300, outline='red', fill='red', state=HIDDEN)
+tounge_tip = c.create_oval(170, 285, 230, 300, outline='red', fill='red', state=HIDDEN)
 
 cheek_left = c.create_oval(70, 180, 120, 230, outline='pink', fill='pink', state=HIDDEN)
 cheek_right = c.create_oval(280, 180, 330, 230, outline='pink', fill='pink', state=HIDDEN)
@@ -89,7 +100,9 @@ c.bind('<Motion>', show_happy)
 c.bind('<Leave>', hide_happy)
 c.bind('<Double-1>', cheeky)
 
+c.happy_level = 2
 c.eyes_crossed = False
 c.toung_out = False
 root.after(1000, blink)
+root.after(5000, sad)
 root.mainloop()
