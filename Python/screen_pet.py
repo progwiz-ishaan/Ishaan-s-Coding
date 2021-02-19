@@ -14,6 +14,17 @@ def blink():
     toggle_eyes()
     root.after(250, toggle_eyes)
     root.after(3000, blink)
+
+def toggle_pupils():
+    if not c.eyes_crossed:
+        c.move(pupil_left, 10, -5)
+        c.move(pupil_right, -10, -5)
+        c.eyes_crossed = True
+    else:
+        c.move(pupil_right, 10, 5)
+        c.move(pupil_left, -10, 5)
+        c.eyes_crossed = False
+
 def show_happy(event):
     if (20 <= event.x <= 350) and (20 <= event.y <= 350):
         c.itemconfigure(cheek_left, state=NORMAL)
@@ -22,6 +33,25 @@ def show_happy(event):
         c.itemconfigure(mouth_normal, state=HIDDEN)
         c.itemconfigure(mouth_sad, state=HIDDEN)
     return
+
+def toggle_tounge():
+    if not c.toung_out:
+        c.itemconfigure(tounge_tip, state=NORMAL)
+        c.itemconfigure(tounge_main, state=NORMAL)
+        c.toung_out = True
+    else:
+        c.itemconfigure(tounge_main, state=HIDDEN)
+        c.itemconfigure(tounge_tip, state=HIDDEN)
+        c.toung_out = False
+
+def cheeky(event):
+    toggle_tounge()
+    toggle_pupils()
+    hide_happy(event)
+    root.after(1000, toggle_tounge)
+    root.after(1000, toggle_pupils)
+    return
+
 def hide_happy(event):
     c.itemconfigure(cheek_right, state=HIDDEN)
     c.itemconfigure(cheek_left, state=HIDDEN)
@@ -57,6 +87,7 @@ c.pack()
 
 c.bind('<Motion>', show_happy)
 c.bind('<Leave>', hide_happy)
+c.bind('<Double-1>', cheeky)
 
 c.eyes_crossed = False
 c.toung_out = False
