@@ -18,7 +18,7 @@ def snap(event):
         valid = True
 
     if valid:
-        if event.char == 'q':
+        if event == 'q':
             player1_score += 1
             l = player1
         else:
@@ -26,7 +26,7 @@ def snap(event):
             l = player2
         shape = c.create_text(200, 200, text='Yay! %s got a point!' % (l))
     else:
-        if event.char == 'q':
+        if event == 'q':
             player1_score -= 1
             l = player1
         else:
