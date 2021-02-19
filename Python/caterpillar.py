@@ -1,6 +1,18 @@
 import random
 import turtle as t
 
+def outside_window():
+    pass
+
+def game_over():
+    pass
+
+def display_score(current_score):
+    pass
+
+def place_leaf():
+    pass
+
 t.bgcolor('yellow')
 
 caterpillar = t.Turtle()
