@@ -18,3 +18,12 @@ leaf.color('green')
 leaf.penup()
 leaf.hideturtle()
 leaf.speed(0)
+
+game_started = False
+text_turtle = t.Turtle()
+text_turtle.write('Press SPACE to start.', align='center', font=('Arial', '16', 'bold'))
+text_turtle.hideturtle()
+
+score_turtle = t.Turtle()
+score_turtle.hideturtle()
+score_turtle.speed(0)
