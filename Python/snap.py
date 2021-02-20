@@ -43,4 +43,6 @@ current_colour = ''
 player1_score = 0
 player2_score = 0
 
+root.after(3000, next_shape)
+
 root.mainloop()
