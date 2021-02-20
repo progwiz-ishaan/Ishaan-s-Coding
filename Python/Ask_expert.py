@@ -7,7 +7,7 @@ def read_from_file():
             country, city = line.split('/')
             the_world[country] = city
 def write_to_file(country_name, city_name):
-    with open('capital_data.txt', 'a') as file:
+    with open('capital_data.txt', 'at') as file:
         file.write('\n' + country_name + '/' + city_name)
 root = Tk()
 root.withdraw()
