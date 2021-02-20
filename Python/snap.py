@@ -35,5 +35,6 @@ shapes.append(square)
 square = c.create_rectangle(35, 20, 365, 350, outline='blue', fill='blue', state=HIDDEN)
 shapes.append(square)
 c.pack()
+random.shuffle(shapes)
 
 root.mainloop()
