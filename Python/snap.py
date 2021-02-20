@@ -16,6 +16,15 @@ circle = c.create_oval(35, 20, 365, 350, outline='green', fill='green', state=HI
 shapes.append(circle)
 circle = c.create_oval(35, 20, 365, 350, outline='blue', fill='blue', state=HIDDEN)
 shapes.append(circle)
+
+retcangle = c.create_rectangle(35, 100, 365, 270, outline='black', fill='black', state=HIDDEN)
+shapes.append(retcangle)
+retcangle = c.create_rectangle(35, 100, 365, 270, outline='red', fill='red', state=HIDDEN)
+shapes.append(retcangle)
+retcangle = c.create_rectangle(35, 100, 365, 270, outline='green', fill='green', state=HIDDEN)
+shapes.append(retcangle)
+retcangle = c.create_rectangle(35, 100, 365, 270, outline='blue', fill='blue', state=HIDDEN)
+shapes.append(retcangle)
 c.pack()
 
 root.mainloop()
