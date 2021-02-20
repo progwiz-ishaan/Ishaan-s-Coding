@@ -1,6 +1,27 @@
 import random
 import tkinter
 from tkinter import Tk, Canvas, HIDDEN, NORMAL
+player1 = input('Who is player1: ')
+player2 = input('Who is player2: ')
+print('%s \'q\' & %s \'p\'.' % (player1, player2))
+def next_shape():
+    global shape
+    global previous_colour
+    global current_colour
+
+    previous_colour = current_colour
+
+    c.delete(shape)
+    if len(shapes) > 0:
+        shape = shapes.pop()
+        c.itemconfigure(shape, state=NORMAL)
+        current_colour = c.itemcget(shape, 'fill')
+        root.after(1000, next_shape)
+    else:
+        c.unbind('q')
+        c.unbind('p')
+        if player1_score > player2_score:
+            c.create_text(200, 200, text='Winner: Player')
 
 root = Tk()
 root.title('Snap')
