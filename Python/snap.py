@@ -25,6 +25,15 @@ retcangle = c.create_rectangle(35, 100, 365, 270, outline='green', fill='green',
 shapes.append(retcangle)
 retcangle = c.create_rectangle(35, 100, 365, 270, outline='blue', fill='blue', state=HIDDEN)
 shapes.append(retcangle)
+
+square = c.create_rectangle(35, 20, 365, 350, outline='black', fill='black', state=HIDDEN)
+shapes.append(square)
+square = c.create_rectangle(35, 20, 365, 350, outline='red', fill='red', state=HIDDEN)
+shapes.append(square)
+square = c.create_rectangle(35, 20, 365, 350, outline='green', fill='green', state=HIDDEN)
+shapes.append(square)
+square = c.create_rectangle(35, 20, 365, 350, outline='blue', fill='blue', state=HIDDEN)
+shapes.append(square)
 c.pack()
 
 root.mainloop()
