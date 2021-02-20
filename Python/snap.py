@@ -1,6 +1,7 @@
 import random
 import tkinter
 from tkinter import Tk, Canvas, HIDDEN, NORMAL
+
 player1 = input('Who is player1: ')
 player2 = input('Who is player2: ')
 print('%s \'q\' & %s \'p\'.' % (player1, player2))
@@ -21,7 +22,12 @@ def next_shape():
         c.unbind('q')
         c.unbind('p')
         if player1_score > player2_score:
-            c.create_text(200, 200, text='Winner: Player')
+            c.create_text(200, 200, text='Winner: %s' % (player1))
+        elif player2_score > player1_score::
+            c.create_text(200, 200, text='Winner: %s' % (player2))
+        else:
+            c.create_text(200, 200, text='Draw')
+        c.pack()
 
 root = Tk()
 root.title('Snap')
