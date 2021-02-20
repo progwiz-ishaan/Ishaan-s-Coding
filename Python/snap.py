@@ -44,5 +44,7 @@ player1_score = 0
 player2_score = 0
 
 root.after(3000, next_shape)
+c.bind('q', snap)
+c.bind('p', snap)
 
 root.mainloop()
