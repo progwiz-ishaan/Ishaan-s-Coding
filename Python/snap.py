@@ -37,4 +37,10 @@ shapes.append(square)
 c.pack()
 random.shuffle(shapes)
 
+shape = None
+previous_colour = ''
+current_colour = ''
+player1_score = 0
+player2_score = 0
+
 root.mainloop()
