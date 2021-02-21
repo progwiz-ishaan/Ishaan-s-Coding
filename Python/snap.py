@@ -21,7 +21,7 @@ def snap(event):
         if event.char == 'q':
             player1_score += 1
             l = player1
-        else:
+        elif event.char == 'p':
             player2_score += 1
             l = player2
         shape = c.create_text(200, 200, text='Yay! %s got a point!' % (l))
@@ -29,7 +29,7 @@ def snap(event):
         if event.char == 'q':
             player1_score -= 1
             l = player1
-        else:
+        elif event.char == 'p':
             player2_score -= 1
             l = player2
         shape = c.create_text(200, 200, text='Opps! %s lost a point!' % (l))
@@ -55,10 +55,10 @@ def next_shape():
         c.unbind('p')
         if player1_score > player2_score:
             c.create_text(200, 200, text='Winner: %s' % (player1))
-        elif player2_score > player1_score::
+        elif player2_score > player1_score:
             c.create_text(200, 200, text='Winner: %s' % (player2))
         else:
-            c.create_text(200, 200, text='Draw')
+            c.create_text(200, 200, text='Draw %s/%s' % (str(player1_score), str(player2_score)))
         c.pack()
 
 root = Tk()
