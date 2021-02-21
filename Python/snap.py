@@ -20,13 +20,16 @@ def next_shape():
         c.unbind('p')
         if player1_score > player2_score:
             c.create_text(200, 200, text='Winner: Player 1')
-            c.create_text(200, 150, text='Player 1 Score: %i & Player 2 Score: %i' % (player1_score, player2_score))
+            c.create_text(200, 150, text='Player 1 Score: %i & Player 2 Score: %i' \
+                 % (player1_score, player2_score))
         elif player2_score > player1_score:
             c.create_text(200, 200, text='Winner: Player 2')
-            c.create_text(200, 150, text='Player 1 Score: %i & Player 2 Score: %i' % (player1_score, player2_score))            
+            c.create_text(200, 150, text='Player 1 Score: %i & Player 2 Score: %i' \
+                 % (player1_score, player2_score))            
         else:
             c.create_text(200, 200, text='Draw')
-            c.create_text(200, 150, text='Player 1 Score: %i & Player 2 Score: %i' % (player1_score, player2_score))
+            c.create_text(200, 150, text='Player 1 Score: %i & Player 2 Score: %i' \
+                 % (player1_score, player2_score))
         c.pack()
     
 def snap(event):
