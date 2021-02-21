@@ -2,41 +2,6 @@ import random
 import time
 from tkinter import Tk, Canvas, HIDDEN, NORMAL
 
-player1 = input('Who is player1: ')
-player2 = input('Who is player2: ')
-print('%s \'q\' & %s \'p\'.' % (player1, player2))
-
-def snap(event):
-    global shape
-    global player1_score
-    global player2_score
-    valid = False
-
-    c.delete(shape)
-
-    if previous_colour == current_colour:
-        valid = True
-
-    if valid:
-        if event.char == 'q':
-            player1_score += 1
-            l = player1
-        elif event.char == 'p':
-            player2_score += 1
-            l = player2
-        shape = c.create_text(200, 200, text='Yay! %s got a point!' % (l))
-    else:
-        if event.char == 'q':
-            player1_score -= 1
-            l = player1
-        elif event.char == 'p':
-            player2_score -= 1
-            l = player2
-        shape = c.create_text(200, 200, text='Opps! %s lost a point!' % (l))
-    c.pack()
-    root.update_idletasks()
-    time.sleep(1)
-
 def next_shape():
     global shape
     global previous_colour
@@ -54,12 +19,38 @@ def next_shape():
         c.unbind('q')
         c.unbind('p')
         if player1_score > player2_score:
-            c.create_text(200, 200, text='Winner: %s' % (player1))
+            c.create_text(200, 200, text='Winner: Player 1')
         elif player2_score > player1_score:
-            c.create_text(200, 200, text='Winner: %s' % (player2))
+            c.create_text(200, 200, text='Winner: Player 2')
         else:
-            c.create_text(200, 200, text='Draw %s/%s' % (str(player1_score), str(player2_score)))
+            c.create_text(200, 200, text='Draw')
         c.pack()
+    
+def snap(event):
+    global shape
+    global player1_score
+    global player2_score
+    valid = False
+
+    c.delete(shape)
+    if previous_colour == current_colour:
+        valid = True
+
+    if valid:
+        if event.char == 'q':
+            player1_score = player1_score + 1
+        else:
+            player2_score = player2_score + 1
+        shape = c.create_text(200, 200, text='SNAP! You score 1 point!')
+    else:
+        if event.char == 'q':
+            player1_score = player1_score - 1
+        elif event.char == 'p':
+            player2_score = player2_score - 1
+        shape = c.create_text(200, 200, text='WRONG! You lose 1 point!')
+    c.pack()
+    root.update_idletasks()
+    time.sleep(1)
 
 root = Tk()
 root.title('Snap')
@@ -94,6 +85,7 @@ shapes.append(square)
 square = c.create_rectangle(35, 20, 365, 350, outline='blue', fill='blue', state=HIDDEN)
 shapes.append(square)
 c.pack()
+
 random.shuffle(shapes)
 
 shape = None
@@ -105,5 +97,6 @@ player2_score = 0
 root.after(3000, next_shape)
 c.bind('q', snap)
 c.bind('p', snap)
+c.focus_set()
 
 root.mainloop()
