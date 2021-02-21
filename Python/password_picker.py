@@ -6,14 +6,15 @@ adjectives = [
     'dirty', 'wet', 'fat', 'thin',
     'red', 'orange', 'yellow', 'sleepy',
     'green', 'pink', 'blue', 'black',
-    'purple', 'white', 'proud', 'brave']
+    'purple', 'white', 'proud', 'brave',
+    'dry']
 
 nouns = [
     'apple', 'orange', 'banana',
     'goat', 'duck', 'man', 'goose',
     'computer', 'panda', 'dinosaur',
     'hammer', 'toster', 'mouse', 'tiger',
-    'ball', 'dragon']
+    'ball', 'dragon', 'mango', 'wizard']
 
 print('Welcome to Password Picker!')
 
