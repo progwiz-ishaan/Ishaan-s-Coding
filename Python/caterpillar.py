@@ -61,20 +61,16 @@ def start_game():
             break
 
 def move_up():
-    if caterpillar.heading() == 0 or caterpillar.heading() == 180:
-        caterpillar.setheading(90)
+    caterpillar.setheading(90)
 
 def move_down():
-    if caterpillar.heading() == 0 or caterpillar.heading() == 180:
-        caterpillar.setheading(270)
+    caterpillar.setheading(270)
 
 def move_left():
-    if caterpillar.heading() == 90 or caterpillar.heading() == 270:
-        caterpillar.setheading(180)
+    caterpillar.setheading(180)
 
 def move_right():
-    if caterpillar.heading() == 90 or caterpillar.heading() == 270:
-        caterpillar.setheading(0)
+    caterpillar.setheading(0)
 
 t.bgcolor('yellow')
 
