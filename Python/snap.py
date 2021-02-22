@@ -20,16 +20,10 @@ def next_shape():
         c.unbind('p')
         if player1_score > player2_score:
             c.create_text(200, 200, text='Winner: Player 1')
-            c.create_text(200, 150, text='Player 1 Score: %i & Player 2 Score: %i' \
-                 % (player1_score, player2_score))
         elif player2_score > player1_score:
-            c.create_text(200, 200, text='Winner: Player 2')
-            c.create_text(200, 150, text='Player 1 Score: %i & Player 2 Score: %i' \
-                 % (player1_score, player2_score))            
+            c.create_text(200, 200, text='Winner: Player 2')     
         else:
             c.create_text(200, 200, text='Draw')
-            c.create_text(200, 150, text='Player 1 Score: %i & Player 2 Score: %i' \
-                 % (player1_score, player2_score))
         c.pack()
     
 def snap(event):
@@ -45,18 +39,26 @@ def snap(event):
     if valid:
         if event.char == 'q':
             player1_score = player1_score + 1
+            update_scores()
         else:
             player2_score = player2_score + 1
+            update_scores()
         shape = c.create_text(200, 200, text='SNAP! You score 1 point!')
     else:
         if event.char == 'q':
             player1_score = player1_score - 1
+            update_scores()
         elif event.char == 'p':
             player2_score = player2_score - 1
+            update_scores()
         shape = c.create_text(200, 200, text='WRONG! You lose 1 point!')
     c.pack()
     root.update_idletasks()
     time.sleep(1)
+
+def update_scores():
+    c.itemconfigure(player1_score_text, text=player1_score)
+    c.itemconfigure(player2_score_text, text=player2_score)
 
 root = Tk()
 root.title('Snap')
@@ -99,6 +101,10 @@ previous_colour = ''
 current_colour = ''
 player1_score = 0
 player2_score = 0
+
+player1_score_text = c.create_text(5, 10, text=player1_score)
+player2_score_text = c.create_text(395, 10, text=player2_score)
+c.pack()
 
 root.after(3000, next_shape)
 c.bind('q', snap)
