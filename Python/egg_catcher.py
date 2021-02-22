@@ -13,7 +13,7 @@ c.pack()
 
 colour_cycle = cycle(['light blue', 'light cyan', 'light pink', 'light yellow', 'light green'])
 egg_width = 45
-egg_height = 45
+egg_height = 55
 egg_score = 10
 egg_speed = 500
 egg_interval = 4000
@@ -37,8 +37,8 @@ score = 0
 score_text = c.create_text(10, 10, anchor='nw', font=game_font, fill='darkblue', text='Score: ' + str(score))
 
 lives_remaining = 3
-lives_text = c.create_text(10, 10, anchor='nw', font=game_font, fill='darkblue', text='Lives: ' + \
-    str(lives_remaining)
+lives_text = c.create_text(canvas_width - 10, 10, anchor='nw', font=game_font, fill='darkblue', text='Lives: ' + \
+    str(lives_remaining))
 
 eggs = []
 
@@ -51,7 +51,7 @@ def create_egg():
 
 def move_eggs():
     for egg in eggs:
-        (egg_x, egg_y, egg_x2, egg_y2) = c.coords(egg)
+        (egg_x1, egg_x2, egg_y1, egg_y2) = c.coords(egg)
         c.move(egg, 0, 10)
         if egg_y2 > canvas_height:
             egg_droped(egg)
@@ -69,5 +69,39 @@ def lose_a_life():
     global lives_remaining
     lives_remaining -= 1
     c.itemconfigure(lives_text, text='Lives: ' + str (lives_remaining))
+
+def check_catch():
+    (catcher_x, catcher_y, catcher_x2, catcher_y2) = c.coords(catcher)
+    for egg in eggs:
+        (egg_x, egg_y, egg_x2, egg_y2) = c.coords(egg)
+        if catcher_x < egg_x and egg_x2 < catcher_x2 and catcher_y2 - egg_y2 < 40:
+            eggs.remove(egg)
+            c.delete(egg)
+            increse_score(egg_score)
+    root.after(100, check_catch)
+
+def increse_score(points):
+    global score, egg_speed, egg_interval
+    score += points
+    egg_speed = int(egg_speed * diffulty_factor)
+    egg_interval = int(egg_interval * diffulty_factor)
+    c.itemconfigure(score_text, text='Score: ' + str(score))
+
+def move_left(e):
+    (x1, y1, x2, y2) = c.coords(catcher)
+    if x1 > 0:
+        c.move(catcher, -20, 0)
+def move_right(e):
+    (x1, x2, y1, y2) = c.coords(catcher)
+    if x2 < canvas_width:
+        c.move(catcher, 20, 0)
+
+c.bind('<Left>', move_left)
+c.bind('<Right>', move_right)
+c.focus_set()
+
+root.after(1000, create_egg)
+root.after(1000, move_eggs)
+root.after(1000, check_catch)
 
 root.mainloop()
