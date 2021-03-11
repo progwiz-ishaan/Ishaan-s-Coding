@@ -14,7 +14,7 @@ nouns = [
     'goat', 'duck', 'man', 'goose',
     'computer', 'panda', 'dinosaur',
     'hammer', 'toster', 'mouse', 'tiger',
-    'ball', 'dragon', 'mango', 'wizard']
+    'ball', 'dragon', 'mango', 'wizard', 'virus', 'computer', 'key']
 
 print('Welcome to Password Picker!')
 
