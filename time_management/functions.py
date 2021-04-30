@@ -2,9 +2,23 @@ from tkinter import *
 from tkinter.messagebox import showinfo
 from task import Task
 
-def add_task(name, task_type, task_time, task_date, task_deadline, task_remind):
+class Add_task(Tk):
+    """A class to create a new add task window."""
+
+    def __init__(self, mode):
+        """Initialize attributes of a "Add task" window."""
+        super().__init__() # Initialize attributes from the parent class to the child class.
+        self.mode = mode
+        self.name = Entry(self, fg='orange', bg='black')
+        self.time = Entry(self, fg='orange', bg='black')
+        self.date = Entry(self, fg='orange', bg='black')
+        self.deadline = Entry(self, fg='orange', bg='black')
+        self.remind = Entry(self, fg='orange', bg='black')
+        self.add_task_ = Button(add_task_window, text='Add Task', fg='orange', bg='black')
+
+def add_task(name, task_type, task_time, task_date, task_deadline, task_remind, s):
     """Add task to its respective file."""
-    print(task_time)
+    print(s)
     if False:
         new_task = Task(name, task_type, task_time, task_date, task_deadline, task_remind)
         new_task.append_to_file()
@@ -18,11 +32,12 @@ def window_func(title):
     add_task_window.title("Add Task")
     add_task_window.configure(bg='black')
     # Entries
-    name = Entry(add_task_window, fg='orange', bg='black')
-    time = Entry(add_task_window, fg='orange', bg='black')
-    date = Entry(add_task_window, fg='orange', bg='black')
-    deadline = Entry(add_task_window, fg='orange', bg='black')
-    remind = Entry(add_task_window, fg='orange', bg='black')
+    s = StringVar()
+    name = 
+    time = 
+    date = 
+    deadline = 
+    remind = 
     name.pack()
     time.pack()
     date.pack()
@@ -30,8 +45,6 @@ def window_func(title):
     remind.pack()
 
     # Buttons
-    add_task_ = Button(add_task_window, text='Add Task', fg='orange', bg='black'\
-    , command=lambda n=name.get(), ty=title_[1], ti=time.get(), da=date.get(), de=deadline.get(), r=remind.get()\
-     : add_task(n, ty, ti, da, de, r))
+    
     add_task_.pack()
-    print(time.get())
+    print(s.get())
