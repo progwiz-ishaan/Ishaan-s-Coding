@@ -5,11 +5,11 @@ from task import Task
 def add_task(name, task_type, task_time, task_date, task_deadline, task_remind):
     """Add task to its respective file."""
     print(task_time)
-    new_task = Task(name, task_type, task_time, task_date, task_deadline, task_remind)
-    new_task.append_to_file()
-    message = showinfo("Task Added Sucsssfully", "Task added sucsssfully!!!")
-    add_task_window.destory()
-    message
+    if False:
+        new_task = Task(name, task_type, task_time, task_date, task_deadline, task_remind)
+        new_task.append_to_file()
+        message = showinfo("Task Added Sucsssfully", "Task added sucsssfully!!!")
+        add_task_window.destory()
 
 def window_func(title):
     """Create a new window with buttons and all."""
@@ -34,3 +34,4 @@ def window_func(title):
     , command=lambda n=name.get(), ty=title_[1], ti=time.get(), da=date.get(), de=deadline.get(), r=remind.get()\
      : add_task(n, ty, ti, da, de, r))
     add_task_.pack()
+    print(time.get())
