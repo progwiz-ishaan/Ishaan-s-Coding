@@ -1,9 +1,13 @@
 # The Time Management program:
-from tkinter import *
+from tkinter import Tk, Label, Button
 from tkinter.messagebox import showinfo
 from datetime import timedelta, datetime
 from task import Task
-from functions import window_func
+from functions import Add_task
+
+def f():
+    ad = Add_task('u1i1')
+    ad.run()
 
 # Set up the window.
 class Window(Tk):
@@ -17,17 +21,17 @@ class Window(Tk):
         self.welcome = Label(self, text='Welcome back, Deepti!!', width=20, height=5, \
         bg='black', fg='orange', font=("Cursive", 30))
 
-        self.u1i1 = Button(self, text='More Urgent, More Impotant', fg='orange', \
-        bg='black', command=lambda text='u1i1' : add_task(text))
+        self.u1i1 = Button(self, text='Most Urgent, Most Impotant', fg='orange', \
+        bg='black', command=f)
 
-        self.u1i0 = Button(self, text="More Urgent, Less Impotant", fg='orange', \
-        bg='black', command=lambda text='u1i0' : add_task(text))
+        self.u1i0 = Button(self, text="Most Urgent, Less Impotant", fg='orange', \
+        bg='black', command=f)
 
-        self.u0i1 = Button(self, text='Less Urgent, More Impotant', fg='orange', \
-        bg='black', command=lambda text='u0i1' : add_task(text))
+        self.u0i1 = Button(self, text='Less Urgent, Most Impotant', fg='orange', \
+        bg='black', command=f)
 
         self.u0i0 = Button(self, text="Less Urgent, Less Impotant", fg='orange', \
-        bg='black', command=lambda text='u0i0' : add_task(text))
+        bg='black', command=f)
 
     def run(self):
         """Pack all widegets and start the mainloop."""

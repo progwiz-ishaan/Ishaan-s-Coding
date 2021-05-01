@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Tk, Entry, Button
 from tkinter.messagebox import showinfo
 from task import Task
 
@@ -14,37 +14,35 @@ class Add_task(Tk):
         self.date = Entry(self, fg='orange', bg='black')
         self.deadline = Entry(self, fg='orange', bg='black')
         self.remind = Entry(self, fg='orange', bg='black')
-        self.add_task_ = Button(add_task_window, text='Add Task', fg='orange', bg='black')
+        self.add_task_ = Button(self, text='Add Task', fg='orange', bg='black', command=self.add_task)
+        self.convert_to_title()
 
-def add_task(name, task_type, task_time, task_date, task_deadline, task_remind, s):
-    """Add task to its respective file."""
-    print(s)
-    if False:
-        new_task = Task(name, task_type, task_time, task_date, task_deadline, task_remind)
+    def convert_to_title(self):
+        """Convert the given code to plaintext."""
+        self.converted_code = ''
+        if self.mode[:1] == '1':
+            self.converted_code += 'MU'
+        else:
+            self.converted_code += 'LU'
+        if self.mode[:3] == '1':
+            self.converted_code += 'MI'
+        else:
+            self.converted_code += 'LI'
+
+    def add_task(self):
+        """Add task to its respective file."""
+        new_task = Task(self.name.get(), self.mode, self.time.get(), self.date.get(), self.deadline.get(), self.remind.get())
         new_task.append_to_file()
-        message = showinfo("Task Added Sucsssfully", "Task added sucsssfully!!!")
-        add_task_window.destory()
 
-def window_func(title):
-    """Create a new window with buttons and all."""
-    title_ = title.split(', ')
-    add_task_window = Tk()
-    add_task_window.title("Add Task")
-    add_task_window.configure(bg='black')
-    # Entries
-    s = StringVar()
-    name = 
-    time = 
-    date = 
-    deadline = 
-    remind = 
-    name.pack()
-    time.pack()
-    date.pack()
-    deadline.pack()
-    remind.pack()
+    def run(self):
+        """Create the window."""
+        self.name.pack()
+        self.date.pack()
+        self.time.pack()
+        self.deadline.pack()
+        self.remind.pack()
+        self.add_task_.pack()
 
-    # Buttons
-    
-    add_task_.pack()
-    print(s.get())
+        self.title(f"Add task {self.converted_code}")
+        self.configure(bg='black')
+        self.mainloop()
