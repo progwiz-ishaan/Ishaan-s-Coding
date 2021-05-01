@@ -3,7 +3,7 @@ from tkinter import Tk, Label, Button
 from tkinter.messagebox import showinfo
 from datetime import timedelta, datetime
 from task import Task
-from functions import Add_task
+from add_task import Add_task
 
 def f():
     ad = Add_task('u1i1')
