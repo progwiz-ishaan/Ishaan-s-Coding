@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Guessing Game by Ishaan Kale
+  </title>
+  <script>
+    var number = Math.floor(Math.random() * 100 + 1);
+    function checkGuess() {
+      var guess = document.getElementByID("guess").value;
+      var msg = "";
+      if (guess > number)
+        msg = guess + " was too high. Try again.";
+      else if (guess < number)
+        msg = guess + " was too low. Try again.";
+      else {
+        msg = guess + " was the number! You win!";
+      }
+      var output = document.getElementByID("output");
+      output.innerHTML = msg;
+    }
+  </script>
+</head>
+<body>
+  <h1>Ishaan's Guessing Game </h1>
+  <form>
+    Enter a number between 1 and 100:
+    <input type="text" id="guess">
+    <button type="button" onclick=""> Guess! </button>
+  </form>
+  <h3 id="output">Guess a number and press the button.</h3>
+</body>
+</html>
