@@ -4,7 +4,7 @@
   </title>
   <script>
     var number = Math.floor(Math.random() * 100 + 1);
-    function checkGuess() {
+    function checkGuess(){
       var guess = document.getElementByID("guess").value;
       var msg = "";
       if (guess > number)
@@ -24,7 +24,7 @@
   <form>
     Enter a number between 1 and 100:
     <input type="text" id="guess">
-    <button type="button" onclick=""> Guess! </button>
+    <button type="button" onclick="checkGuess();"> Guess! </button>
   </form>
   <h3 id="output">Guess a number and press the button.</h3>
 </body>
