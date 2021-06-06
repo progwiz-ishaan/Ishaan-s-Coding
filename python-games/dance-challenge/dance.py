@@ -12,7 +12,7 @@ display_list = []
 score = 0
 current_move = 0
 count = 4
-dance_length = 6
+dance_length = 4
 
 say_dance = False
 show_countdown = True
