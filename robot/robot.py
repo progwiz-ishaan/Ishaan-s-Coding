@@ -20,7 +20,7 @@ def set_up_robot():
     owner = input("Robot owner name: ")
     if owner == 'q':
         return
-    password = input(f"Password for accessing robot(tip: {name}123): ")
+    password = input(f"Password for accessing robot(tip: {name]}123): ")
     date_created = str(datetime.now())
     # Create a dict about the robot and store it in a file.
     robot_dict = {
@@ -30,8 +30,10 @@ def set_up_robot():
         'password': password,
     }
     filename = '/home/ishaan/Documents/Ishaan\'s-Coding/robot/robots.json'
-    with open(filename, 'a') as f:
+    with open(filename) as f:
         robot_list = json.load(f)
         robot_list.append(robot_dict)
+    with open(filename, 'w') as f:
+        json.dump(robot_list, f, indent=4)
     print("Robot created sucessfully!")
 set_up_robot()
