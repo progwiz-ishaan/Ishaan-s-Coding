@@ -35,5 +35,8 @@ def set_up_robot():
         robot_list.append(robot_dict)
     with open(filename, 'w') as f:
         json.dump(robot_list, f, indent=4)
-    print("Robot created sucessfully!")
+    launch = input("The robot is created sucessfully!\n \
+    do you want to launch it now?(Y/n): ")
+    if launch == 'Y':
+        robot = Robot(robot_dict)
 set_up_robot()
