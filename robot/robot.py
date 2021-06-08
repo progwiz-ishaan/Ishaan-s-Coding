@@ -31,8 +31,7 @@ def set_up_robot():
     }
     filename = '/home/ishaan/Documents/Ishaan\'s-Coding/robot/robots.json'
     with open(filename, 'a') as f:
-        f.write("\n")
-        json.dump(robot_dict, f, indent=4)
+        robot_list = json.load(f)
+        robot_list.append(robot_dict)
     print("Robot created sucessfully!")
-
 set_up_robot()
